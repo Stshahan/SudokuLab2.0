@@ -11,15 +11,6 @@ public enum ePuzzleViolation {
 			
 		}
 
-		static ePuzzleViolation	valueOf​(java.lang.String name) {
 
-		}
-
-
-		static ePuzzleViolation[] values() {
-
-			return this.ePuzzleViolation[];
-			}
-
-		}
+}
 

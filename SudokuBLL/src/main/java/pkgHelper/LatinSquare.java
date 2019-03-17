@@ -30,9 +30,18 @@ public class LatinSquare {
 	 * @version 1.1
 	 * @since Lab #1
 	 */
+	private boolean bIgnoreZero;
 
 	public LatinSquare(int[][] puzzle) {
 		this.LatinSquare = puzzle;
+	}
+
+	public boolean isbIgnoreZero() {
+		return bIgnoreZero;
+	}
+
+	public void setbIgnoreZero(boolean bIgnoreZero) {
+		this.bIgnoreZero = bIgnoreZero;
 	}
 
 	/**
@@ -108,7 +117,7 @@ public class LatinSquare {
 			Col[row] = LatinSquare[row][iCol];
 		}
 		return Col;
-	}
+	} 
 
 	/**
 	 * return LatinSquare instance attribute
@@ -130,7 +139,7 @@ public class LatinSquare {
 	 * 4 1 3 2 <br>
 	 * 
 	 * In this example, getRow(1) would return [1],[2],[3],[4]
-	 * 
+	 * lalalallalal
 	 * @version 1.1
 	 * @since Lab #1
 	 * @param iRow
@@ -149,7 +158,7 @@ public class LatinSquare {
 
 	/**
 	 * hasAllValues - return 'true' if every element from arr2 is in arr1
-	 * 
+	 * lalalalal
 	 * @version 1.1
 	 * @since Lab #1
 	 * @param arr1
@@ -266,4 +275,26 @@ public class LatinSquare {
 	public void setLatinSquare(int[][] latinSquare) {
 		LatinSquare = latinSquare;
 	}
+	protected boolean hasDuplicates() {
+		
+		for (int i = 0; i < LatinSquare.length; i++) {
+			if (hasDuplicates(getRow(i))) {
+				addPV(new PuzzleViolation(ePuzzleViolation.DupCol,i));
+				
+		}
+//Add ignore zero method here soon.
+		for (int j = 0; j < LatinSquare.length; j++) {
+			if (hasDuplicates(getColumn(j))) {
+				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,j));
+				
+		}
+		return PV.size>0;
+	}
 }
+
+	
+
+
+
+
+

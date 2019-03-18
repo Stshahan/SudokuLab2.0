@@ -1,5 +1,6 @@
 package pkgHelper;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
@@ -126,5 +127,21 @@ public class LatinSquareTest {
 	public void hasDuplicates_Test() {
 		int[] row= {1,2,3,5};
 
+	}
+	
+	@Test 
+	public void ePuzzleViolation_Test() throws Exception {
+		boolean hasPV =false;
+		LatinSquare LS = new LatinSquare();
+		LS.clearPV();
+		int [][] Puz1 ={{1,2,3},{1,3,1},{3,1,2}};
+		LS.setLatinSquare(Puz1);
+		LS.hasDuplicates();
+		if (LS.getPV().size()==2)
+		{
+			hasPV=true;
+		}
+		assertEquals(hasPV, true);
+		
 	}
 }

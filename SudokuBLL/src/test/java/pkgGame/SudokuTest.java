@@ -16,7 +16,7 @@ public void TestRegionNbr() {
 	
 	int regionNbr = 1;
 	
-	assertEquals(getRegion(1), getRegion(1,2));
+	assertEquals(samplePuzzle.getRegion(regionNbr), samplePuzzle.getRegion(1,2));
 	
 }
 }

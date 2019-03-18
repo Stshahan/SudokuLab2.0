@@ -7,15 +7,18 @@ public class PuzzleViolation {
 	private int iValue;
 	
 	
-	public PuzzleViolation (ePuzzleViolation ePuzzleViolation,int iValue) {
+	public PuzzleViolation (pkgEnum.ePuzzleViolation ePuzzleViolation,int iValue) {
+		super();
+		this.ePuzzleViolation = ePuzzleViolation;
+		this.iValue = iValue;
 		
 	}
 	public ePuzzleViolation getePuzzleViolation() {
-		return this.ePuzzleViolation;
+		return ePuzzleViolation;
 	}
 	
 	public int getiValue() {
-		return this.iValue;
+		return iValue;
 	}
 }
 

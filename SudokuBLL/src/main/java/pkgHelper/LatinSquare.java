@@ -1,6 +1,9 @@
 package pkgHelper;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+
+import pkgEnum.ePuzzleViolation;
 
 public class LatinSquare {
 
@@ -11,7 +14,8 @@ public class LatinSquare {
 	 * @since Lab #1
 	 */
 	private int[][] LatinSquare;
-
+	private ArrayList <PuzzleViolation> PV = new ArrayList<PuzzleViolation>();
+	private boolean bIgnoreZeros = false;
 	/**
 	 * No-arg constructor, make it public, don't do anything in the constructor
 	 * 
@@ -278,23 +282,37 @@ public class LatinSquare {
 	protected boolean hasDuplicates() {
 		
 		for (int i = 0; i < LatinSquare.length; i++) {
-			if (hasDuplicates(getRow(i))) {
+			if (hasDuplicates(getRow(i))) 
 				addPV(new PuzzleViolation(ePuzzleViolation.DupCol,i));
 				
 		}
 //Add ignore zero method here soon.
 		for (int j = 0; j < LatinSquare.length; j++) {
-			if (hasDuplicates(getColumn(j))) {
+			if (hasDuplicates(getColumn(j))) 
 				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,j));
 				
 		}
-		return PV.size>0;
+		return PV.size()>0;
+	}
+		
+
+	public ArrayList<PuzzleViolation> getPV() {
+		return PV;
+	}
+
+	public void addPV(PuzzleViolation pV) {
+		PV.add(pV);
+	
+	}
+	public void clearPV() {
+		PV.clear();
+	}
+
+	public boolean isbIgnoreZeros() {
+		return bIgnoreZeros;
+	}
+
+	public void setbIgnoreZeros(boolean bIgnoreZeros) {
+		this.bIgnoreZeros = bIgnoreZeros;
 	}
 }
-
-	
-
-
-
-
-

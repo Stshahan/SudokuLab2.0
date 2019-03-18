@@ -3,7 +3,9 @@ package pkgGame;
 
 import java.util.Arrays;
 
+import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
+import pkgHelper.PuzzleViolation;
 
 public class Sudoku extends LatinSquare {
 	 

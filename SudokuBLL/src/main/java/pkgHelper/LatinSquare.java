@@ -282,15 +282,33 @@ public class LatinSquare {
 	protected boolean hasDuplicates() throws Exception {
 		
 		for (int i = 0; i < LatinSquare.length; i++) {
-			if (hasDuplicates(getRow(i))) 
+			if(bIgnoreZero) {
+			int[] arraycopy=RemoveZeros​(Arrays.copyOf(getRow(i), getRow(i).length));
+			if (hasDuplicates(arraycopy)) {
 				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,i));
-				
+				}
+			}
+			else {
+				if (hasDuplicates(getRow(i))) {
+			
+				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,i));
+				}
+			}
 		}
 //Add ignore zero method here soon.
 		for (int j = 0; j < LatinSquare.length; j++) {
-			if (hasDuplicates(getColumn(j))) 
-				addPV(new PuzzleViolation(ePuzzleViolation.DupCol,j));
+			if(bIgnoreZero) {
+				int[] arraycopy=RemoveZeros​(Arrays.copyOf(getColumn(j), getColumn(j).length));
+				if (hasDuplicates(arraycopy)) {
+					addPV(new PuzzleViolation(ePuzzleViolation.DupCol,j));
+					}
+				}
+				else {
+					if (hasDuplicates(getColumn(j))) {
 				
+					addPV(new PuzzleViolation(ePuzzleViolation.DupCol,j));
+					}
+				}
 		}
 		return PV.size()>0;
 	}
@@ -316,7 +334,10 @@ public class LatinSquare {
 		this.bIgnoreZeros = bIgnoreZeros;
 	}
 	private int[] RemoveZeros​(int[] arr) {
-		while(ArrayUtils.contains(arr, 0))
-            arr = ArrayUtils.removeElement(arr, 0);
-		}
+		int[] array=arr;
+		while(ArrayUtils.contains(array, 0)) {
+			array = ArrayUtils.removeElement(arr, 0);
 	}
+		return array ;
+	}
+}

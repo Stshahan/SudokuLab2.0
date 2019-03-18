@@ -59,14 +59,16 @@ public class Sudoku extends LatinSquare {
 		int regionInd = 0;
 		int [][] copyPuzzle=this.getPuzzle();
 		if (i < 0 || i > numRegions) {
-			throw new Exception("Out of bounds.");
+			throw new Exception("Out of bounds exception");
 		}
 		
 		
 		for(int rowNum = (i/iSqrtSize)*iSqrtSize;rowNum < ((i/iSqrtSize)*iSqrtSize)+iSqrtSize;rowNum++) {
 			for(int colNum = (i/iSqrtSize)%iSqrtSize;colNum < ((i/iSqrtSize)%iSqrtSize)+iSqrtSize;colNum++) {
 				
-				theRegion[regionInd++] = copyPuzzle[rowNum][colNum];
+				theRegion[regionInd] = copyPuzzle[rowNum][colNum];
+				
+				regionInd += 1;
 			}
 		}
 		return theRegion;
@@ -78,8 +80,9 @@ public class Sudoku extends LatinSquare {
 		//int [] aRow = getRow(Row);
 		
 		int r = (Col/iSqrtSize)+((Row/iSqrtSize)+iSqrtSize);
-		if (r < 0 || r > (iSqrtSize - 1)) {
-			throw new Exception("Out of bounds.");
+		if (r < 0 || r > (iSqrtSize - 1)) { //I think we need to remove the  - 1. 
+			//In the test case, r is being set to 4 which is out of bounds according to the 'if' statement above.
+			throw new Exception("Out of bounds exception caught.");
 		}
 		else {
 		return getRegion(r);

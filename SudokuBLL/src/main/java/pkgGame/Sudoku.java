@@ -110,8 +110,20 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	protected boolean isValueValid(int Val, int Col, int Row) {
+		//int [] Region = getRegion(Col,Row);
 		
-		return false;
+		
+		
+		//if(hasDuplicates(colList))
+		int [][] copyPuzzle=this.getPuzzle();
+		copyPuzzle[Row][Col]=Val;
+		pkgHelper.LatinSquare c=new LatinSquare(copyPuzzle);
+		if (c.hasDuplicates(c.getColumn(Col))==false && c.hasDuplicates(c.getRow(Row))==false) {
+			return true;
+		}
+		else {
+		return false; 
+		}
 	}
 	
 	@Override

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import pkgEnum.ePuzzleViolation;
-
+import org.apache.commons.lang.ArrayUtils;
 public class LatinSquare {
 
 	/**
@@ -283,13 +283,13 @@ public class LatinSquare {
 		
 		for (int i = 0; i < LatinSquare.length; i++) {
 			if (hasDuplicates(getRow(i))) 
-				addPV(new PuzzleViolation(ePuzzleViolation.DupCol,i));
+				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,i));
 				
 		}
 //Add ignore zero method here soon.
 		for (int j = 0; j < LatinSquare.length; j++) {
 			if (hasDuplicates(getColumn(j))) 
-				addPV(new PuzzleViolation(ePuzzleViolation.DupRow,j));
+				addPV(new PuzzleViolation(ePuzzleViolation.DupCol,j));
 				
 		}
 		return PV.size()>0;
@@ -315,4 +315,8 @@ public class LatinSquare {
 	public void setbIgnoreZeros(boolean bIgnoreZeros) {
 		this.bIgnoreZeros = bIgnoreZeros;
 	}
-}
+	private int[] RemoveZeros​(int[] arr) {
+		while(ArrayUtils.contains(arr, 0))
+            arr = ArrayUtils.removeElement(arr, 0);
+		}
+	}

@@ -107,6 +107,7 @@ public class Sudoku extends LatinSquare {
 	
 	protected boolean isPartialSudoku() {
 		// Will return true it it's Sudoku and there's a zero value
+		
 		return false;
 	}
 	

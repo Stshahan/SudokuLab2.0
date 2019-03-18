@@ -295,7 +295,7 @@ public class LatinSquare {
 				}
 			}
 		}
-//Add ignore zero method here soon.
+
 		for (int j = 0; j < LatinSquare.length; j++) {
 			if(bIgnoreZero) {
 				int[] arraycopy=RemoveZeros​(Arrays.copyOf(getColumn(j), getColumn(j).length));

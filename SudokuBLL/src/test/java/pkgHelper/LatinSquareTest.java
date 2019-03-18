@@ -142,7 +142,6 @@ public class LatinSquareTest {
 
 		assertEquals(bHasDuplicates, false);
 	}
-
 	@Test 
 	public void ePuzzleViolation_Test() throws Exception {
 		boolean hasPV =false;

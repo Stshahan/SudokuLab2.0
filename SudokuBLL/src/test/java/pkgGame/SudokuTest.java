@@ -10,9 +10,10 @@ public class SudokuTest {
 		
 	}
 @Test
-public void TestRegionNbr() {
+public void TestRegionNbr() throws Exception {
 	//Sudoku S = new Sudoku();
-	Sudoku samplePuzzle = new Sudoku({{0,1,2,3},{1,2,3,4},{3,4,1,2},{4,1,3,2}});
+	int [][] Puz1 ={{0,1,2,3},{1,2,3,4},{3,4,1,2},{4,1,3,2}};
+	Sudoku samplePuzzle = new Sudoku(Puz1);
 	
 	int regionNbr = 1;
 	

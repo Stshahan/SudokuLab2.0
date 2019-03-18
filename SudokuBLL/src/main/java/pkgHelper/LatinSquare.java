@@ -279,7 +279,7 @@ public class LatinSquare {
 	public void setLatinSquare(int[][] latinSquare) {
 		LatinSquare = latinSquare;
 	}
-	protected boolean hasDuplicates() {
+	protected boolean hasDuplicates() throws Exception {
 		
 		for (int i = 0; i < LatinSquare.length; i++) {
 			if (hasDuplicates(getRow(i))) 

@@ -314,7 +314,7 @@ public class LatinSquare {
 	}
 		
 
-	public ArrayList<PuzzleViolation> getPV() {
+	protected ArrayList<PuzzleViolation> getPV() {
 		return PV;
 	}
 

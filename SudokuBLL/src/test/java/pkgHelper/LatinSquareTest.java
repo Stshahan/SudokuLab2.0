@@ -124,11 +124,25 @@ public class LatinSquareTest {
 	}
 	
 	@Test
-	public void hasDuplicates_Test() {
-		int[] row= {1,2,3,5};
+	public void hasDuplicates_Test3() {
+		LatinSquare LS = new LatinSquare();
+		int[] arr = { 1, 100, 5, 0, 0 };
 
+		boolean bHasDuplicates = LS.hasDuplicates(arr);
+
+		assertEquals(bHasDuplicates, false);
 	}
 	
+	@Test
+	public void hasDuplicates_Test4() {
+		LatinSquare LS = new LatinSquare();
+		int[] arr = { 1, 10, 4, 0, 2 };
+
+		boolean bHasDuplicates = LS.hasDuplicates(arr);
+
+		assertEquals(bHasDuplicates, false);
+	}
+
 	@Test 
 	public void ePuzzleViolation_Test() throws Exception {
 		boolean hasPV =false;
@@ -136,7 +150,7 @@ public class LatinSquareTest {
 		LS.clearPV();
 		int [][] Puz1 ={{1,2,3},{1,3,1},{3,1,2}};
 		LS.setLatinSquare(Puz1);
-		LS.hasDuplicates();
+		LS.hasDuplicates();		
 		if (LS.getPV().size()==2)
 		{
 			hasPV=true;

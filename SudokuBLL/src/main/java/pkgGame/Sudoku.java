@@ -124,7 +124,7 @@ public class Sudoku extends LatinSquare {
 		}
 		else {
 		return false; 
-		}
+		} 
 	}
 	
 	@Override

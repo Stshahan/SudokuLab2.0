@@ -2,8 +2,9 @@
 package pkgGame;
 
 import java.util.Arrays;
-
+import pkgEnum.ePuzzleViolation;
 import pkgHelper.LatinSquare;
+import pkgHelper.PuzzleViolation;
 
 public class Sudoku extends LatinSquare {
 	 
@@ -127,21 +128,22 @@ public class Sudoku extends LatinSquare {
 	}
 	
 	@Override
-	protected boolean hasDuplicates() {
+	protected boolean hasDuplicates() throws Exception {
 	
 		super.hasDuplicates();
 		
 		for (int k = 0; k < getPuzzle().length; k++) {
 			if (hasDuplicates(getRegion(k))) {
 				super.addPV(new PuzzleViolation(ePuzzleViolation.DupRegion,k));
+			return true; 
 			}
-		else {
-			return false;
 		}
-		}
+		return false;
+		
 		}
 	}
-
+		
+	
 	
 	
 	

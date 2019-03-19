@@ -53,7 +53,7 @@ public class Sudoku extends LatinSquare {
 	 
 	 
 	public int [] getRegion(int i) throws java.lang.Exception{
-		int numRegions = (iSqrtSize - 1);
+		int numRegions = (iSize - 1);
 		int[] theRegion = new int[iSize];
 		//int size = iSize;
 		int regionInd = 0;
@@ -80,7 +80,7 @@ public class Sudoku extends LatinSquare {
 		//int [] aRow = getRow(Row);
 		
 		int r = (Col/iSqrtSize)+((Row/iSqrtSize)+iSqrtSize);
-		if (r < 0 || r > (iSqrtSize - 1)) { //I think we need to remove the  - 1. 
+		if (r < 0 || r > (iSize -1)) { //I think we need to remove the  - 1. 
 			//In the test case, r is being set to 4 which is out of bounds according to the 'if' statement above.
 			throw new Exception("Out of bounds exception caught.");
 		}
@@ -105,21 +105,20 @@ public class Sudoku extends LatinSquare {
 		else {
 		return false;
 		}
-		//Must be latin square and each region must be tested.
 	}
 	
 	protected boolean isPartialSudoku() {
-		// Will return true it it's Sudoku and there's a zero value
-		
-		return false;
+		try {
+			super.setbIgnoreZeros(true);
+			this.hasDuplicates();
+		}
+		catch(Exception e) {
+			return false;
+		}
+		return true;
 	}
 	
 	protected boolean isValueValid(int Val, int Col, int Row) {
-		//int [] Region = getRegion(Col,Row);
-		
-		
-		
-		//if(hasDuplicates(colList))
 		int [][] copyPuzzle=this.getPuzzle();
 		copyPuzzle[Row][Col]=Val;
 		pkgHelper.LatinSquare c=new LatinSquare(copyPuzzle);
@@ -134,9 +133,12 @@ public class Sudoku extends LatinSquare {
 	@Override
 	protected boolean hasDuplicates() throws Exception {
 	
-		super.hasDuplicates();
+		if(super.hasDuplicates()==true) {
+			return true;
+		}
 		
 		for (int k = 0; k < getPuzzle().length; k++) {
+			
 			if (hasDuplicates(getRegion(k))) {
 				super.addPV(new PuzzleViolation(ePuzzleViolation.DupRegion,k));
 			return true; 

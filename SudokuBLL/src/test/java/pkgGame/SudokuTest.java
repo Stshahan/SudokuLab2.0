@@ -28,10 +28,9 @@ public void TestRegionNbr() throws Exception {
 	 * {4,1,3,2};
 	 * 	 */
 	
-	System.out.println(Arrays.toString(samplePuzzle.getRegion(2)));
-	System.out.println(Arrays.toString(samplePuzzle.getRegion(1,2)));
 	
-	assertEquals(samplePuzzle.getRegion(2), samplePuzzle.getRegion(1,2));
+	
+	assertEquals(Arrays.toString(samplePuzzle.getRegion(2)), Arrays.toString(samplePuzzle.getRegion(1,2)));
 	
 }
 }

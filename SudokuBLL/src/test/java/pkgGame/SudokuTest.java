@@ -27,12 +27,11 @@ public void TestRegionNbr() throws Exception {
 	 * {3,4,1,2},
 	 * {4,1,3,2};
 	 * 	 */
-	//Shaun can you look at this?????
 	
 	System.out.println(Arrays.toString(samplePuzzle.getRegion(2)));
 	System.out.println(Arrays.toString(samplePuzzle.getRegion(1,2)));
 	
-	//assertEquals(regionNbr, samplePuzzle.getRegion(1,2));
+	assertEquals(samplePuzzle.getRegion(2), samplePuzzle.getRegion(1,2));
 	
 }
 }

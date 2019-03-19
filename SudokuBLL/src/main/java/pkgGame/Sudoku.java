@@ -99,12 +99,43 @@ public class Sudoku extends LatinSquare {
 	}
 
 	protected boolean isSudoku() throws Exception{
-		if(isPartialSudoku() == true) {
+		try {
+			super.setbIgnoreZeros(false);
+			this.hasDuplicates();
+			
+		}
+		catch(Exception e) {
+			return false;
+		} 
+		for(int r = 0; r <(iSize - 1); r++) {
+		if(doesElementExist(getRow(r), 0) == true) {
+			return false;
+		}
+		}
+		super.setbIgnoreZero(false);
+		
+		int[] firstRow = getRow(0);
+		int trueCounter = 0;
+		
+		for(int a = 0; a < iSize; a++) {
+			for(int b = 0; b < (iSize-1); b++) {
+				int [] reg = getRegion(b);
+				for(int c = 0; c < (iSize - 1); c++) {
+					if(firstRow[a] == reg[c]) {
+							trueCounter += 1;
+					}
+				}
+				
+			}
+			
+		}
+		if(trueCounter == iSize) {
 			return true;
 		}
 		else {
-		return false;
+			return false;
 		}
+		
 	}
 	
 	protected boolean isPartialSudoku() throws Exception{

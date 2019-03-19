@@ -115,7 +115,7 @@ public class Sudoku extends LatinSquare {
 		}
 		catch(Exception e) {
 			return false;
-		}
+		} 
 		for(int r = 0; r <(iSize - 1); r++) {
 		if(doesElementExist(getRow(r), 0) == false) {
 			return false;
